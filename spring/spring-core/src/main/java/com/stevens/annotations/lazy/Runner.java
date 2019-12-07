@@ -1,4 +1,4 @@
-package com.stevens.spring.scopes;
+package com.stevens.annotations.lazy;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
@@ -7,13 +7,13 @@ public class Runner {
 
 	public static void main(String[] args) {
 		ApplicationContext context = new AnnotationConfigApplicationContext();
-		((AnnotationConfigApplicationContext) context).scan("com.stevens.spring.scopes");
+		((AnnotationConfigApplicationContext) context).scan("com.stevens.annotations.lazy");
 		((AnnotationConfigApplicationContext) context).refresh();
 
-		SpringBean bean1 = (SpringBean) context.getBean("springBean");
+		SpringBeanA bean1 = (SpringBeanA) context.getBean("springBeanA");
 		bean1.setMessage("Hello Spring");
 
-//		System.out.println("Bean invocation first time : " + bean1.getMessage());
+		System.out.println("Bean invocation first time : " + bean1.getMessage());
 //
 //		SpringBean bean2 = (SpringBean) context.getBean("springBean");
 //
@@ -21,5 +21,4 @@ public class Runner {
 		((AnnotationConfigApplicationContext) context).registerShutdownHook();
 		((AnnotationConfigApplicationContext) context).close();
 	}
-
 }

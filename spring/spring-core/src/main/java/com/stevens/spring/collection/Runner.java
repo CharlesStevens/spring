@@ -7,7 +7,7 @@ public class Runner {
 
 	public static void main(String[] args) {
 		ApplicationContext context = new AnnotationConfigApplicationContext();
-		((AnnotationConfigApplicationContext) context).scan("com.swastik.spring.collection");
+		((AnnotationConfigApplicationContext) context).scan("com.stevens.spring.collection");
 		((AnnotationConfigApplicationContext) context).refresh();
 
 		SpringBean bean1 = (SpringBean) context.getBean("springBean");
