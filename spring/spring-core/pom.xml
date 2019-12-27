@@ -145,8 +145,14 @@
 			<artifactId>spring-websocket</artifactId>
 			<version>${spring.version}</version>
 		</dependency>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>4.12</version>
+      <scope>compile</scope>
+    </dependency>
 
-	</dependencies>
+  </dependencies>
 	<build>
 		<plugins>
 			<plugin>
