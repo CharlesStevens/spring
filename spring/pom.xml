@@ -8,6 +8,7 @@
     <module>spring-core</module>
     <module>spring-webmvc_1</module>
 	<module>spring-webmvc_2</module>
+	<module>spring-webmvc_3</module>
   </modules>
   <packaging>pom</packaging>
 
