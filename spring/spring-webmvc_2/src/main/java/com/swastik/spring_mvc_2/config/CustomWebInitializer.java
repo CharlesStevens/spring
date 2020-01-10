@@ -20,5 +20,7 @@ public class CustomWebInitializer implements WebApplicationInitializer {
 		servlet.setLoadOnStartup(1);
 		servlet.addMapping("/");
 	}
+	
+	
 
 }
