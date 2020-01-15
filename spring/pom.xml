@@ -12,6 +12,7 @@
 		<module>spring-webmvc-validation-jsr-303</module>
 		<module>spring-webmvc-validation-spring</module>
 		<module>spring-webmvc-exception-handling</module>
+		<module>spring-webmvc-interceptor</module>
 	</modules>
 	<packaging>pom</packaging>
 
