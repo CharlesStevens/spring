@@ -4,7 +4,7 @@
   <artifactId>spring-core</artifactId>
 	<groupId>com.stevens.spring</groupId>
 	<modelVersion>4.0.0</modelVersion>
-	<name>stevens_spring</name>
+	<name>spring-core</name>
 
 	<parent>
 		<artifactId>spring</artifactId>
@@ -15,7 +15,6 @@
 	<properties>
 		<spring.version>5.1.5.RELEASE</spring.version>
 	</properties>
-	<version>0.1</version>
 
   <build>
     <plugins>

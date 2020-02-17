@@ -5,7 +5,7 @@
 	<groupId>com.stevens.spring</groupId>
 	<modelVersion>4.0.0</modelVersion>
 	<modules>
-		<module>spring-core</module>
+		<!-- <module>spring-core</module> -->
 		<module>spring-webmvc_1</module>
 		<module>spring-webmvc_2</module>
 		<module>spring-webmvc_3</module>
@@ -13,9 +13,8 @@
 		<module>spring-webmvc-validation-spring</module>
 		<module>spring-webmvc-exception-handling</module>
 		<module>spring-webmvc-interceptor</module>
+		<module>spring-jpa-1</module>
 	</modules>
 	<packaging>pom</packaging>
-
-
 	<version>0.1</version>
 </project>
