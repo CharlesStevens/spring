@@ -1,5 +1,6 @@
 package com.swastik.webmvc.interceptor.config;
 
+import org.joda.time.DateTime;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -29,7 +30,9 @@ public class SpringWebConfigurer implements WebMvcConfigurer {
 		return new CustomHandlerInterceptor();
 	}
 
+	@Override
 	public void addInterceptors(InterceptorRegistry registry) {
-		registry.addInterceptor(getInterceptor());
+		registry.addInterceptor(getInterceptor()).addPathPatterns("/home");
 	}
+
 }
