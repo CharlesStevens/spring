@@ -1,9 +1,11 @@
 <project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xmlns="http://maven.apache.org/POM/4.0.0"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-	<artifactId>spring-core</artifactId>
+	<artifactId>spring-jpa-1</artifactId>
 	<modelVersion>4.0.0</modelVersion>
 	<name>spring-jpa-1</name>
+
+	<packaging>war</packaging>
 
 	<parent>
 		<artifactId>spring</artifactId>
@@ -16,19 +18,31 @@
 	</properties>
 
 	<build>
-		<plugins>
-			<plugin>
-				<artifactId>maven-compiler-plugin</artifactId>
-				<configuration>
-					<source>1.8</source>
-					<target>1.8</target>
-				</configuration>
-				<groupId>org.apache.maven.plugins</groupId>
-				<version>3.8.1</version>
-			</plugin>
-		</plugins>
+		<finalName>spring-jpa-1</finalName>
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<artifactId>maven-compiler-plugin</artifactId>
+					<configuration>
+						<source>1.8</source>
+						<target>1.8</target>
+					</configuration>
+					<groupId>org.apache.maven.plugins</groupId>
+					<version>3.2</version>
+				</plugin>
+				<plugin>
+					<artifactId>maven-war-plugin</artifactId>
+					<configuration>
+						<failOnMissingWebXml>false</failOnMissingWebXml>
+						<warName>spring-jpa-1</warName>
+						<warSourceDirectory>src/main/webapp</warSourceDirectory>
+					</configuration>
+					<groupId>org.apache.maven.plugins</groupId>
+					<version>2.4</version>
+				</plugin>
+			</plugins>
+		</pluginManagement>
 	</build>
-
 
 	<dependencies>
 		<dependency>
@@ -185,7 +199,11 @@
 			<artifactId>mysql-connector-java</artifactId>
 			<version>8.0.13</version>
 		</dependency>
-
+		<dependency>
+			<artifactId>javax.servlet-api</artifactId>
+			<groupId>javax.servlet</groupId>
+			<version>3.1.0</version>
+		</dependency>
 
 	</dependencies>
 

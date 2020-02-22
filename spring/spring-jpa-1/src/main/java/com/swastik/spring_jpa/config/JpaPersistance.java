@@ -15,9 +15,11 @@ import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.orm.jpa.JpaTransactionManager;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
+import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
 @Configuration
 @EnableTransactionManagement
+@EnableWebMvc
 @EnableJpaRepositories(basePackages = {"com.swastik.spring_jpa.service"})
 @ComponentScan(basePackages = {"com.swastik.spring_jpa"})
 @PropertySource("classpath:application.properties")
