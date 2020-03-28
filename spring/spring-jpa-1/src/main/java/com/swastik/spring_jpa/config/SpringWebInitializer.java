@@ -18,7 +18,6 @@ public class SpringWebInitializer implements WebApplicationInitializer {
 		ServletRegistration.Dynamic servlet = servletContext.addServlet("dispatcher", new DispatcherServlet(ctx));
 		servlet.addMapping("/");
 		servlet.setLoadOnStartup(1);
-
 	}
 
 }
