@@ -14,6 +14,7 @@ public class Address {
   @Id
   @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "emp_seq")
   Long add_id;
+  
   @Column(name = "street_name")
   String street_name;
 
