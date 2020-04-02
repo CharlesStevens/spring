@@ -81,10 +81,10 @@ public class Employee {
 		return techStacks;
 	}
 
-	// public void addTechStacks(TechStack techStack) {
-	// techStack.addEmployees(this);
-	// techStacks.add(techStack);
-	// }
+	public void addTechStacks(TechStack techStack) {
+		this.techStacks.add(techStack);
+		techStack.getEmployees().add(this);
+	}
 
 	public String getEmp_name() {
 		return emp_name;

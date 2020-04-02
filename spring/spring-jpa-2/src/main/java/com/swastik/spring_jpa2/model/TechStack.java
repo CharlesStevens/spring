@@ -56,11 +56,6 @@ public class TechStack {
 		return employees;
 	}
 
-	public void addEmployees(Employee e) {
-		this.employees.add(e);
-		e.getTechStacks().add(this);
-	}
-
 	@Override
 	public String toString() {
 		return "TechStack [stack_id=" + stack_id + ", stack_name=" + stack_name + "]";
@@ -70,7 +65,6 @@ public class TechStack {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((employees == null) ? 0 : employees.hashCode());
 		result = prime * result + ((stack_id == null) ? 0 : stack_id.hashCode());
 		result = prime * result + ((stack_name == null) ? 0 : stack_name.hashCode());
 		return result;
@@ -85,11 +79,6 @@ public class TechStack {
 		if (getClass() != obj.getClass())
 			return false;
 		TechStack other = (TechStack) obj;
-		if (employees == null) {
-			if (other.employees != null)
-				return false;
-		} else if (!employees.equals(other.employees))
-			return false;
 		if (stack_id == null) {
 			if (other.stack_id != null)
 				return false;
