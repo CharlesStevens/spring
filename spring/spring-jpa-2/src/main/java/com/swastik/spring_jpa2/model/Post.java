@@ -12,7 +12,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
-import javax.persistence.Lob;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
@@ -21,74 +20,50 @@ import com.sun.istack.NotNull;
 @Entity
 @Table(name = "posts")
 public class Post {
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
 
-	@NotNull
-	@Column(unique = true)
-	private String title;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
-	@NotNull
-	private String description;
+    @Column
+    private String title;
 
-	@NotNull
-	@Lob
-	private String content;
+    @ManyToMany(fetch = FetchType.EAGER, cascade = {CascadeType.MERGE, CascadeType.PERSIST})
+    @JoinTable(name = "post_tags", joinColumns = {@JoinColumn(name = "post_id")}, inverseJoinColumns = {
+            @JoinColumn(name = "tag_id")})
+    private Set<Tag> tags = new HashSet<>();
 
-	@ManyToMany(fetch = FetchType.LAZY, cascade = { CascadeType.PERSIST, CascadeType.MERGE })
-	@JoinTable(name = "post_tags", joinColumns = { @JoinColumn(name = "post_id") }, inverseJoinColumns = {
-			@JoinColumn(name = "tag_id") })
-	private Set<Tag> tags = new HashSet<>();
+    public Post() {
+    }
 
-	public Post() {
+    public Post(String title) {
+        this.title = title;
+    }
 
-	}
+    public Long getId() {
+        return id;
+    }
 
-	public Post(String title, String description, String content) {
-		this.title = title;
-		this.description = description;
-		this.content = content;
-	}
+    public void setId(Long id) {
+        this.id = id;
+    }
 
-	public Long getId() {
-		return id;
-	}
+    public String getTitle() {
+        return title;
+    }
 
-	public void setId(Long id) {
-		this.id = id;
-	}
+    public void setTitle(String title) {
+        this.title = title;
+    }
 
-	public String getTitle() {
-		return title;
-	}
+    public Set<Tag> getTags() {
+        return tags;
+    }
 
-	public void setTitle(String title) {
-		this.title = title;
-	}
-
-	public String getDescription() {
-		return description;
-	}
-
-	public void setDescription(String description) {
-		this.description = description;
-	}
-
-	public String getContent() {
-		return content;
-	}
-
-	public void setContent(String content) {
-		this.content = content;
-	}
-
-	public Set<Tag> getTags() {
-		return tags;
-	}
-
-	public void setTags(Set<Tag> tags) {
-		this.tags = tags;
-	}
-
+    public void addTags(Tag tag) {
+        if (!this.tags.contains(tag)) {
+            this.tags.add(tag);
+            tag.addPost(this);
+        }
+    }
 }
