@@ -8,11 +8,9 @@ import java.util.Objects;
 @Embeddable
 public class CourseRatingKey implements Serializable {
 
-//    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "student_id")
     Long studentId;
 
-//    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "course_id")
     Long courseId;
 
@@ -40,17 +38,28 @@ public class CourseRatingKey implements Serializable {
         this.courseId = course_id;
     }
 
+    public Long getCourse_id() {
+        return courseId;
+    }
+
+    public void setCourse_id(Long course_id) {
+        this.courseId = course_id;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof CourseRatingKey)) return false;
+
+        if (o == null || getClass() != o.getClass())
+            return false;
+
         CourseRatingKey that = (CourseRatingKey) o;
-        return getStudentId().equals(that.getStudentId()) &&
-                getCourseId().equals(that.getCourseId());
+        return Objects.equals(studentId, that.studentId) &&
+            Objects.equals(courseId, that.courseId);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getStudentId(), getCourseId());
+        return Objects.hash(studentId, courseId);
     }
 }
