@@ -13,9 +13,7 @@
 		<module>spring-webmvc-validation-spring</module>
 		<module>spring-webmvc-exception-handling</module>
 		<module>spring-webmvc-interceptor</module>
-		<module>spring-jpa-1</module>
-		<module>spring-jpa-2</module>
-		<module>spring-jpa-3</module>
+		<module>spring-jpa</module>
 	</modules>
 	<packaging>pom</packaging>
 	<version>0.1</version>
