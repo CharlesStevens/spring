@@ -8,10 +8,6 @@ import java.util.ArrayList;
 import java.util.List;
 import org.apache.commons.io.FileUtils;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Pageable;
-import org.springframework.data.domain.Sort;
 
 public class RunnerFlightData {
 
@@ -32,10 +28,13 @@ public class RunnerFlightData {
 //      System.out.println(allFlightDatum.toString());
 //    }
 
-    Pageable p = PageRequest.of(0, 3, Sort.by("airport"));
-    Page<FlightData> page = service.getAllPageFlightData(p);
-    System.out.println(page.getTotalPages());
-    System.out.println(page.getTotalElements());
+//    Pageable p = PageRequest.of(0, 3, Sort.by("airport"));
+//    Page<FlightData> page = service.getAllPageFlightData(p);
+//    System.out.println(page.getTotalPages());
+//    System.out.println(page.getTotalElements());
+
+    List<FlightData> flightDataByAirport = service.getNamedQueryResult("BIS");
+    System.out.println(flightDataByAirport.size());
 
   }
 

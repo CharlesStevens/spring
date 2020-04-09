@@ -20,6 +20,10 @@ public class FlightDataService {
     flightDataRepo.saveAll(flightDataCollection);
   }
 
+  public List<FlightData> getNamedQueryResult(String airport) {
+    return flightDataRepo.fetchOnAirport(airport);
+  }
+
   public void saveFlightData(FlightData flightData) {
     flightDataRepo.save(flightData);
   }
