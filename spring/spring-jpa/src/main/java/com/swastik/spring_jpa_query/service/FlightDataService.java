@@ -71,7 +71,7 @@ public class FlightDataService {
     return flightDataRepo.procedureWithArgs(crr);
   }
 
-  public List<FlightData> getFromFlightDataOnMatchingWithEmployee() {
+  public Object[] getFromFlightDataOnMatchingWithEmployee() {
     return flightDataRepo.getFromFlightDataOnMatchingWithEmployee();
   }
 }

@@ -64,9 +64,9 @@ public class RunnerFlightData {
 //    int recordCountByCarrier = service.procedureWithArgs("OH");
 //    System.out.println("record count for Carrier : OH is : " + recordCountByCarrier);
 
-    List<FlightData> fls = service.getFromFlightDataOnMatchingWithEmployee();
-    fls.forEach(t -> System.out.println(t.toString()));
-
+    Object[] fls = service.getFromFlightDataOnMatchingWithEmployee();
+    System.out.println(fls);
+//    fls.forEach(t -> System.out.println(t.toString()));
 
   }
 

@@ -49,7 +49,7 @@ public interface FlightDataRepo extends JpaRepository<FlightData, Long> {
   public Integer procedureWithArgs(@Param("crr") String crr);
 
 
-  @Query(nativeQuery = true, value = "select * from FlightData f full join spring_jpa_new.employee e on f.carrier = e.carrier limit 10")
-  public List<FlightData> getFromFlightDataOnMatchingWithEmployee();
+  @Query(nativeQuery = true, value = "select f.airport,e.carrier,e.id from FlightData f left join spring_jpa_new.employee e on f.carrier = e.carrier limit 10")
+  public Object[] getFromFlightDataOnMatchingWithEmployee();
 
 }
