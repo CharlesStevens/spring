@@ -1,6 +1,5 @@
 package com.swastik.spring_jpa_query.main;
 
-import com.swastik.spring_jpa_query.config.JpaPersistance;
 import com.swastik.spring_jpa_query.model.FlightData;
 import com.swastik.spring_jpa_query.service.FlightDataService;
 import java.io.File;
@@ -13,7 +12,8 @@ public class RunnerFlightData {
 
   public static void main(String[] args) throws Exception {
     AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext();
-    ctx.register(JpaPersistance.class);
+//    ctx.register(JpaPersistance.class, JpaPersistance2.class);
+    ctx.scan("com.swastik.spring_jpa_query");
     ctx.refresh();
 
     FlightDataService service = (FlightDataService) ctx.getBean("flightDataService");
@@ -33,8 +33,40 @@ public class RunnerFlightData {
 //    System.out.println(page.getTotalPages());
 //    System.out.println(page.getTotalElements());
 
-    List<FlightData> flightDataByAirport = service.getNamedQueryResult("BIS");
-    System.out.println(flightDataByAirport.size());
+//    Sort sort = Sort.by(Order.by("airport_name"));
+//    List<FlightData> flightDataByAirport = service.getNamedQueryResult("VX", sort);
+//    flightDataByAirport.forEach(c-> System.out.println(c.toString()));
+
+//    Pageable p = PageRequest.of(0, 10, Sort.by("airport"));
+//    Page<FlightData> page1 = service.getNamedQueryResultJpql("MQ", p);
+//    Page<FlightData> page2 = service.getNamedQueryResultNative("VX", p);
+//
+//    System.out.println("carrier : " + "MQ " + page1.getTotalElements());
+//    System.out.println("Total Pages : " + page1.getTotalPages());
+//    System.out.println("carrier : " + "VX " + page2.getTotalElements());
+//    System.out.println("Total Pages : " + page2.getTotalPages());
+//
+//    int i = service.updateFlightData("BIS", "XXX");
+//    System.out.println(i);
+
+//    List<FlightData> fls = service.findByCarrierStartingWithOrderByAirport("B");
+//    fls.forEach(t -> System.out.println(t.toString()));
+
+//    List<FlightData> fls = service.findByMonthLessThan(4);
+//    fls.forEach(t -> System.out.println(t.toString()));
+
+//    int recordCountByCarrier = service.getFlightCountByCarrier("MQ");
+//    System.out.println("record count for Carrier : MQ is : " + recordCountByCarrier);
+
+//    List<FlightData> fl = service.getAllRecordLimit10();
+//    fl.forEach(t-> System.out.println(t.toString()));
+
+//    int recordCountByCarrier = service.procedureWithArgs("OH");
+//    System.out.println("record count for Carrier : OH is : " + recordCountByCarrier);
+
+    List<FlightData> fls = service.getFromFlightDataOnMatchingWithEmployee();
+    fls.forEach(t -> System.out.println(t.toString()));
+
 
   }
 

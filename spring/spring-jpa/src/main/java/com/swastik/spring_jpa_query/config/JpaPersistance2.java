@@ -6,7 +6,6 @@ import org.hibernate.jpa.HibernatePersistenceProvider;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Primary;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.env.Environment;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
@@ -19,36 +18,34 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @Configuration
 @EnableTransactionManagement
 @EnableJpaRepositories(basePackages =
-    "com.swastik.spring_jpa_query.repository", entityManagerFactoryRef = "entityManagerFactory",
-    transactionManagerRef = "transactionManager")
+    "com.swastik.spring_jpa_query.empRepo", entityManagerFactoryRef = "entityManagerFactory2",
+    transactionManagerRef = "transactionManager2")
 @PropertySource("classpath:application.properties")
-public class JpaPersistance {
+public class JpaPersistance2 {
 
   @Autowired
   Environment env;
 
-  @Bean(name = "dataSource")
-  @Primary
-  DataSource dataSource() {
+  @Bean(name = "dataSource2")
+  DataSource dataSource2() {
     DriverManagerDataSource dataSource = new DriverManagerDataSource();
-    dataSource.setDriverClassName(env.getRequiredProperty("db.driver"));
-    dataSource.setUrl(env.getRequiredProperty("db.url"));
-    dataSource.setUsername(env.getRequiredProperty("db.username"));
-    dataSource.setPassword(env.getRequiredProperty("db.password"));
+    dataSource.setDriverClassName(env.getRequiredProperty("newdb.driver"));
+    dataSource.setUrl(env.getRequiredProperty("newdb.url"));
+    dataSource.setUsername(env.getRequiredProperty("newdb.username"));
+    dataSource.setPassword(env.getRequiredProperty("newdb.password"));
     System.out.println("DataSource Bean initialized " + dataSource.toString());
     return dataSource;
   }
 
-  @Bean(name = "entityManagerFactory")
-  @Primary
-  LocalContainerEntityManagerFactoryBean entityManagerFactory() {
+  @Bean(name = "entityManagerFactory2")
+  LocalContainerEntityManagerFactoryBean entityManagerFactory2() {
     LocalContainerEntityManagerFactoryBean entityManagerFactory = new LocalContainerEntityManagerFactoryBean();
     // Properties props = hibernateProps();
-    DataSource ds = dataSource();
+    DataSource ds = dataSource2();
     entityManagerFactory.setDataSource(ds);
-    entityManagerFactory.setPersistenceUnitName("Hibernate");
+    entityManagerFactory.setPersistenceUnitName("new-hibernate");
     entityManagerFactory.setPersistenceProviderClass(HibernatePersistenceProvider.class);
-    entityManagerFactory.setPackagesToScan("com.swastik.spring_jpa_query.model");
+    entityManagerFactory.setPackagesToScan("com.swastik.spring_jpa_query.empModel");
 
     Properties props = new Properties();
     props.setProperty("hibernate.dialect", env.getProperty("hibernate.dialect"));
@@ -64,11 +61,10 @@ public class JpaPersistance {
     return entityManagerFactory;
   }
 
-  @Bean(name = "transactionManager")
-  @Primary
-  PlatformTransactionManager transactionManager() {
+  @Bean(name = "transactionManager2")
+  PlatformTransactionManager transactionManager2() {
     JpaTransactionManager txManager = new JpaTransactionManager();
-    LocalContainerEntityManagerFactoryBean em = entityManagerFactory();
+    LocalContainerEntityManagerFactoryBean em = entityManagerFactory2();
     txManager.setEntityManagerFactory(em.getObject());
     return txManager;
   }

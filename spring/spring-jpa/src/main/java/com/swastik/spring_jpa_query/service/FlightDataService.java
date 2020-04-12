@@ -20,8 +20,16 @@ public class FlightDataService {
     flightDataRepo.saveAll(flightDataCollection);
   }
 
-  public List<FlightData> getNamedQueryResult(String airport) {
-    return flightDataRepo.fetchOnAirport(airport);
+  public List<FlightData> getNamedQueryResult(String carrier, Sort sort) {
+    return flightDataRepo.fetchOnAirport(carrier);
+  }
+
+  public Page<FlightData> getNamedQueryResultJpql(String carrier, Pageable pageable) {
+    return flightDataRepo.fetchOnAirportPageableJPQL(carrier, pageable);
+  }
+
+  public Page<FlightData> getNamedQueryResultNative(String carrier, Pageable pageable) {
+    return flightDataRepo.fetchOnAirportPageableNative(carrier, pageable);
   }
 
   public void saveFlightData(FlightData flightData) {
@@ -34,7 +42,36 @@ public class FlightDataService {
 //    return flightDataRepo.findAll();
   }
 
+  public int updateFlightData(String airport, String airport1) {
+    return flightDataRepo
+        .updateNativeQuery(airport, airport1);
+  }
+
   public Page<FlightData> getAllPageFlightData(Pageable pageable) {
     return flightDataRepo.findAll(pageable);
+  }
+
+  public List<FlightData> findByCarrierStartingWithOrderByAirport(String carrier) {
+    return flightDataRepo.findByCarrierStartingWithOrderByAirport(carrier);
+  }
+
+  public List<FlightData> findByMonthLessThan(int i) {
+    return flightDataRepo.findByMonthLessThanOrderByYear(i);
+  }
+
+  public int getFlightCountByCarrier(String carrier) {
+    return flightDataRepo.getFlightCountByCarrier(carrier);
+  }
+
+  public List<FlightData> getAllRecordLimit10() {
+    return flightDataRepo.getAllRecordLimit10();
+  }
+
+  public int procedureWithArgs(String crr) {
+    return flightDataRepo.procedureWithArgs(crr);
+  }
+
+  public List<FlightData> getFromFlightDataOnMatchingWithEmployee() {
+    return flightDataRepo.getFromFlightDataOnMatchingWithEmployee();
   }
 }

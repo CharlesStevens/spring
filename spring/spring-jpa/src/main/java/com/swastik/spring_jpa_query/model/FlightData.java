@@ -1,17 +1,32 @@
 package com.swastik.spring_jpa_query.model;
 
+import java.time.OffsetDateTime;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQuery;
+import javax.persistence.NamedStoredProcedureQuery;
+import javax.persistence.ParameterMode;
+import javax.persistence.StoredProcedureParameter;
 import javax.persistence.Table;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 
 @Entity
 @Table(name = "flightdata")
-@NamedQuery(name = "FlightData.fetchOnAirport", query = "select f from FlightData  limit 10")
+@NamedQuery(name = "FlightData.fetchOnAirport", query = "select f from FlightData f where carrier = :carrier")
+@NamedStoredProcedureQuery(name = "FlightData.procedureWithArgs", procedureName = "getFlightCountByCarrier", parameters = {
+    @StoredProcedureParameter(mode = ParameterMode.IN, name = "crr", type = String.class),
+    @StoredProcedureParameter(mode = ParameterMode.OUT, name = "cnt", type = Integer.class)})
 public class FlightData {
+
+  @CreationTimestamp
+  OffsetDateTime createdDateTime;
+
+  @UpdateTimestamp
+  OffsetDateTime updatedDateTime;
 
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -59,8 +74,10 @@ public class FlightData {
   @Column
   Integer late_aircraft_delay;
 
+
   public FlightData() {
   }
+
 
   public FlightData(Integer year, Integer month, String carrier, String carrier_name,
       String airport,
@@ -268,6 +285,23 @@ public class FlightData {
     this.carrier = carrier;
   }
 
+
+  public OffsetDateTime getCreatedDateTime() {
+    return createdDateTime;
+  }
+
+  public void setCreatedDateTime(OffsetDateTime createdDateTime) {
+    this.createdDateTime = createdDateTime;
+  }
+
+  public OffsetDateTime getUpdatedDateTime() {
+    return updatedDateTime;
+  }
+
+  public void setUpdatedDateTime(OffsetDateTime updatedDateTime) {
+    this.updatedDateTime = updatedDateTime;
+  }
+
   @Override
   public String toString() {
     return "FlightData{" +
@@ -275,7 +309,7 @@ public class FlightData {
         ", year=" + year +
         ", month=" + month +
         ", carrier='" + carrier + '\'' +
-        ", carrier_name='" + carrierName + '\'' +
+        ", carrierName='" + carrierName + '\'' +
         ", airport='" + airport + '\'' +
         ", airport_name='" + airport_name + '\'' +
         ", arr_flights=" + arr_flights +
@@ -293,6 +327,8 @@ public class FlightData {
         ", nas_delay=" + nas_delay +
         ", security_delay=" + security_delay +
         ", late_aircraft_delay=" + late_aircraft_delay +
+        ", createdDateTime=" + createdDateTime.toString() +
+        ", updatedDateTime=" + updatedDateTime.toString() +
         '}';
   }
 }

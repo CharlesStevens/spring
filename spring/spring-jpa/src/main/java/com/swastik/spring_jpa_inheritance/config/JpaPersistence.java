@@ -61,6 +61,7 @@ public class JpaPersistence {
   JpaTransactionManager transactionManager(EntityManagerFactory entityManagerFactory) {
     JpaTransactionManager txManager = new JpaTransactionManager();
     txManager.setEntityManagerFactory(entityManagerFactory);
+    System.out.println("################### Trn manager");
     return txManager;
   }
 
