@@ -1,7 +1,11 @@
 package com.swastik.spring_jpa_query.main;
 
+import com.swastik.spring_jpa_query.empModel.Address;
+import com.swastik.spring_jpa_query.empModel.Person;
 import com.swastik.spring_jpa_query.model.FlightData;
+import com.swastik.spring_jpa_query.service.AddressService;
 import com.swastik.spring_jpa_query.service.FlightDataService;
+import com.swastik.spring_jpa_query.service.PersonService;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
@@ -17,6 +21,8 @@ public class RunnerFlightData {
     ctx.refresh();
 
     FlightDataService service = (FlightDataService) ctx.getBean("flightDataService");
+    PersonService personService = (PersonService) ctx.getBean("personService");
+    AddressService addressService = (AddressService) ctx.getBean("addressService");
 //    List<FlightData> flData = getFlightDataCollection();
 //    service.saveAllFlightData(flData);
 //    int i = 0;
@@ -64,9 +70,18 @@ public class RunnerFlightData {
 //    int recordCountByCarrier = service.procedureWithArgs("OH");
 //    System.out.println("record count for Carrier : OH is : " + recordCountByCarrier);
 
-    Object[] fls = service.getFromFlightDataOnMatchingWithEmployee();
-    System.out.println(fls);
+//    Object[] fls = service.getFromFlightDataOnMatchingWithEmployee();
+//    System.out.println(fls);
 //    fls.forEach(t -> System.out.println(t.toString()));
+
+    Address address = new Address("abhishek", "bangalore", "2nd Cross");
+    addressService.saveAddress(address);
+
+    Person p = new Person("abhishek", "cgi");
+    Address addressOfPerson = personService.saveAndGetAddress(p);
+
+    System.out.println(addressOfPerson);
+
 
   }
 
