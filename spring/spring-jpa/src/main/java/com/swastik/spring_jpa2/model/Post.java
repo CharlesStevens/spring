@@ -2,7 +2,6 @@ package com.swastik.spring_jpa2.model;
 
 import java.util.HashSet;
 import java.util.Set;
-
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -15,7 +14,6 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
-import com.sun.istack.NotNull;
 
 @Entity
 @Table(name = "posts")
