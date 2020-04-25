@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns="http://maven.apache.org/POM/4.0.0"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <artifactId>spring-security-custom</artifactId>
+  <packaging>war</packaging>
+
+  <build>
+    <finalName>spring-security-custom</finalName>
+    <pluginManagement>
+      <plugins>
+        <plugin>
+          <artifactId>maven-compiler-plugin</artifactId>
+          <configuration>
+            <source>1.8</source>
+            <target>1.8</target>
+          </configuration>
+          <groupId>org.apache.maven.plugins</groupId>
+          <version>3.2</version>
+        </plugin>
+        <plugin>
+          <artifactId>maven-war-plugin</artifactId>
+          <configuration>
+            <failOnMissingWebXml>false</failOnMissingWebXml>
+            <warName>spring-security-custom</warName>
+            <warSourceDirectory>src/main/webapp</warSourceDirectory>
+          </configuration>
+          <groupId>org.apache.maven.plugins</groupId>
+          <version>2.4</version>
+        </plugin>
+      </plugins>
+    </pluginManagement>
+  </build>
+
+  <dependencies>
+    <dependency>
+      <artifactId>spring-webmvc</artifactId>
+      <groupId>org.springframework</groupId>
+      <version>${spring.version}</version>
+    </dependency>
+
+    <dependency>
+      <artifactId>javax.servlet-api</artifactId>
+      <groupId>javax.servlet</groupId>
+      <version>3.1.0</version>
+    </dependency>
+    <dependency>
+      <artifactId>javax.servlet.jsp-api</artifactId>
+      <groupId>javax.servlet.jsp</groupId>
+      <version>2.3.1</version>
+    </dependency>
+    <dependency>
+      <artifactId>jstl</artifactId>
+      <groupId>javax.servlet</groupId>
+      <version>1.2</version>
+    </dependency>
+    <dependency>
+      <artifactId>spring-security-web</artifactId>
+      <groupId>org.springframework.security</groupId>
+      <version>${spring.version}</version>
+    </dependency>
+    <dependency>
+      <artifactId>spring-security-config</artifactId>
+      <groupId>org.springframework.security</groupId>
+      <version>${spring.version}</version>
+    </dependency>
+    <dependency>
+      <artifactId>commons-io</artifactId>
+      <groupId>commons-io</groupId>
+      <version>2.4</version>
+    </dependency>
+    <dependency>
+      <artifactId>slf4j-api</artifactId>
+      <groupId>org.slf4j</groupId>
+      <version>1.7.13</version>
+    </dependency>
+  </dependencies>
+
+
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <artifactId>spring</artifactId>
+    <groupId>com.stevens.spring</groupId>
+    <version>0.1</version>
+  </parent>
+
+  <properties>
+    <spring.version>5.1.5.RELEASE</spring.version>
+  </properties>
+
+
+</project>

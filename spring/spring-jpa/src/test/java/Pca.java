@@ -23,8 +23,8 @@ public class Pca {
 
       //Create the JWT Claims Object
       String[] claimArray = new String[4];
-      claimArray[0] = "3MVG9n_HvETGhr3C5erIpnpTCOUB_H9OzH3651Ws8stv6iyMq7FKcj0usIIWsyA3EWLliswEcSdX3NR6Y5FlC";
-      claimArray[1] = "abhi_dev@personal.com";
+      claimArray[0] ="";
+      claimArray[1] = "";
       claimArray[2] = "https://login.salesforce.com";
       claimArray[3] = Long.toString((System.currentTimeMillis() / 1000) + 30000);
 //      claimArray[4]=<JTI>
@@ -38,10 +38,10 @@ public class Pca {
       //Load the private key from a keystore
       KeyStore keystore = KeyStore.getInstance("JKS");
       keystore.load(new FileInputStream(
-              "C:\\Users\\Abhishek\\Downloads\\server_certificates\\server.keystore"),
-          "Json!Xml".toCharArray());
+              ""),
+          "".toCharArray());
       PrivateKey privateKey = (PrivateKey) keystore
-          .getKey("swastik_cnt_app", "Madrid!Bull".toCharArray());
+          .getKey("", "".toCharArray());
 
       //Sign the JWT Header + "." + JWT Claims Object
       Signature signature = Signature.getInstance("SHA256withRSA");

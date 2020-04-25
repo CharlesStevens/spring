@@ -14,7 +14,8 @@
 		<module>spring-webmvc-exception-handling</module>
 		<module>spring-webmvc-interceptor</module>
 		<module>spring-jpa</module>
-	</modules>
+    <module>spring-security-custom</module>
+  </modules>
 	<packaging>pom</packaging>
 	<version>0.1</version>
 </project>
