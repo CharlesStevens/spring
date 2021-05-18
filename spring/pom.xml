@@ -1,21 +1,21 @@
 <project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xmlns="http://maven.apache.org/POM/4.0.0"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-	<artifactId>spring</artifactId>
-	<groupId>com.stevens.spring</groupId>
-	<modelVersion>4.0.0</modelVersion>
-	<modules>
-		<!-- <module>spring-core</module> -->
-		<module>spring-webmvc_1</module>
-		<module>spring-webmvc_2</module>
-		<module>spring-webmvc_3</module>
-		<module>spring-webmvc-validation-jsr-303</module>
-		<module>spring-webmvc-validation-spring</module>
-		<module>spring-webmvc-exception-handling</module>
-		<module>spring-webmvc-interceptor</module>
-		<module>spring-jpa</module>
-    <module>spring-security-custom</module>
-  </modules>
-	<packaging>pom</packaging>
-	<version>0.1</version>
+         xmlns="http://maven.apache.org/POM/4.0.0"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <artifactId>spring</artifactId>
+    <groupId>com.stevens.spring</groupId>
+    <modelVersion>4.0.0</modelVersion>
+    <modules>
+        <module>spring-core</module>
+        <module>spring-webmvc_1</module>
+        <module>spring-webmvc_2</module>
+        <module>spring-webmvc_3</module>
+        <module>spring-webmvc-validation-jsr-303</module>
+        <module>spring-webmvc-validation-spring</module>
+        <module>spring-webmvc-exception-handling</module>
+        <module>spring-webmvc-interceptor</module>
+        <module>spring-jpa</module>
+        <module>spring-security-custom</module>
+    </modules>
+    <packaging>pom</packaging>
+    <version>0.1</version>
 </project>

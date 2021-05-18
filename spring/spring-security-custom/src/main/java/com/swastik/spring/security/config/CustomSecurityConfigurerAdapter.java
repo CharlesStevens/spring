@@ -19,7 +19,7 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 @ComponentScan(basePackages = "com.swastik.spring.security")
 public class CustomSecurityConfigurerAdapter extends WebSecurityConfigurerAdapter {
 
-	private static Logger log = LoggerFactory.getLogger(CustomSecurityConfigurerAdapter.class);
+	private static Logger log = LoggerFactory.getLogger("CustomSecurityConfigurerAdapter");
 
 	 @Autowired
 	 RestBasicAuthenticationEntryPoint entryPoint;
