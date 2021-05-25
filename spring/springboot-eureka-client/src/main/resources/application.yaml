@@ -1,0 +1,53 @@
+spring:
+  profiles: callee
+  application:
+    name: sample-eureka-client
+
+server:
+  port: 8080
+
+eureka:
+  instance:
+    instance-id: ${spring.application.name}:${random.value}
+    hostname: localhost
+  client:
+    healthcheck:
+      enabled: false
+    service-url:
+      defaultZone: http://localhost:8056/eureka
+    fetch-registry: false
+
+
+---
+
+spring:
+  profiles: caller
+  application:
+    name: sample-eureka-client-caller
+
+
+server:
+  port: 8083
+
+eureka:
+  instance:
+    instance-id: ${spring.application.name}
+  client:
+    service-url:
+      defaultZone: http://localhost:8056/eureka
+    register-with-eureka: false
+    fetch-registry: true
+
+sample.eureka.client.instance: sample-eureka-client
+
+sample-eureka-client:
+  ribbon:
+    ReadTimeout: 5000
+    ConnectTimeout: 10000
+    MaxAutoRetriesNextServer: 4
+    MaxAutoRetries: 2
+    retryableStatusCodes: 503
+    OkToRetryOnAllOperations: false
+
+#sample-eureka-client.ribbon.NFLoadBalancerClassName: com.netflix.loadbalancer.DynamicServerListLoadBalancer
+#sample-eureka-client.ribbon.NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RoundRobinRule

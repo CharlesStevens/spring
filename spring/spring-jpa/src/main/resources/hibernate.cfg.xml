@@ -13,6 +13,6 @@
     <property name="hbm2ddl.auto">update</property>
     <property name="hibernate.show_sql">true</property>
     <property name="hibernate.format_sql">true</property>
-    <mapping class="com.swastik.spring_jpa_query.main.SalesRep"/>
+    <mapping class="com.stevens.spring_jpa_query.main.SalesRep"/>
   </session-factory>
 </hibernate-configuration>
