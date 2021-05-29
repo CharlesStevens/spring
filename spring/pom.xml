@@ -17,6 +17,10 @@
         <module>spring-security-custom</module>
         <module>springboot-erureka-server</module>
         <module>springboot-eureka-client</module>
+        <module>springboot-hystrix</module>
+        <module>springboot-webflux-sample</module>
+        <module>springboot-hystrix-dashboard</module>
+        <module>springboot-feign</module>
     </modules>
     <packaging>pom</packaging>
     <version>0.1</version>

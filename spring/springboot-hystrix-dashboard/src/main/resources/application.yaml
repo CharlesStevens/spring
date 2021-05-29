@@ -1,0 +1,11 @@
+server:
+  port: 5555
+
+hystrix:
+  dashboard:
+    proxy-stream-allow-list: "*"
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8056/eureka
