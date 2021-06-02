@@ -4,6 +4,9 @@
     <artifactId>spring</artifactId>
     <groupId>com.stevens.spring</groupId>
     <modelVersion>4.0.0</modelVersion>
+    <packaging>pom</packaging>
+    <version>0.1</version>
+
     <modules>
         <module>spring-core</module>
         <module>spring-webmvc_1</module>
@@ -21,7 +24,9 @@
         <module>springboot-webflux-sample</module>
         <module>springboot-hystrix-dashboard</module>
         <module>springboot-feign</module>
+        <module>springboot-zuul</module>
+        <module>springboot-config-server</module>
+        <module>springboot-config-server-client</module>
     </modules>
-    <packaging>pom</packaging>
-    <version>0.1</version>
+
 </project>

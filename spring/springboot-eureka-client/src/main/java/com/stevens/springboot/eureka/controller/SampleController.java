@@ -1,4 +1,4 @@
-package com.stevens.springboot.hystrix.controller;
+package com.stevens.springboot.eureka.controller;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Profile;
@@ -29,7 +29,7 @@ public class SampleController {
         System.out.println("SampleController || Request URL : " + requestURL + " counter passed by the caller " + count);
         counter++;
 
-        sleep();
+//        sleep();
 
         if (false) { // True for testing ribbon retry
             return new ResponseEntity(HttpStatus.SERVICE_UNAVAILABLE);

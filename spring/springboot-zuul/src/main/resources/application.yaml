@@ -1,0 +1,45 @@
+spring:
+  application:
+    name: zuul-gateway
+
+server:
+  port: 1234
+
+eureka:
+  instance:
+    instance-id: ${spring.application.name}:${random.value}
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8056/eureka
+
+zuul:
+  prefix: /api
+  routes:
+    sample-eureka-client:
+      path: /cls/**
+      sensitiveHeaders:
+      ignoredHeaders:
+
+# the sensitive headers blocks the sensitive headers like authorization token,cookie and does not pass
+  # it back to the downstream, if we want these headers to not to be passed to downstream ,
+  # we can define it in sensitive headers.
+
+# Ignored Headers is the property by which we is completely ignored by the zuul server
+  # both in request and response.
+
+# Configure sensitive headers
+#The default HTTP client used by Zuul is now backed by the Apache HTTP Client instead
+  #of the deprecated Ribbon RestClient. To use RestClient or okhttp3.OkHttpClient,
+  #set ribbon.restclient.enabled=true or ribbon.okhttp.enabled=true, respectively.
+  #If you would like to customize the Apache HTTP client or the OK HTTP client,
+  #provide a bean of type ClosableHttpClient or OkHttpClient.
+
+# Configuring ribbon properties
+myusers-service:
+  ribbon:
+    NIWSServerListClassName: com.netflix.loadbalancer.ConfigurationBasedServerList
+    listOfServers: https://example1.com,http://example2.com
+    ConnectTimeout: 1000
+    ReadTimeout: 3000
+    MaxTotalHttpConnections: 500
+    MaxConnectionsPerHost: 100

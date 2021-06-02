@@ -1,4 +1,4 @@
-package com.stevens.springboot.hystrix.service;
+package com.stevens.springboot.eureka.service;
 
 import org.springframework.cloud.client.ServiceInstance;
 import org.springframework.cloud.client.discovery.DiscoveryClient;

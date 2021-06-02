@@ -1,0 +1,4 @@
+datasource.host: wrm9a1
+datasource.port: 9011
+datasource.user: rmdchd
+datasource.pass: self@log

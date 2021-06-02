@@ -1,4 +1,4 @@
-package com.stevens.springboot.hystrix.configuration;
+package com.stevens.springboot.eureka.configuration;
 
 import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.context.annotation.Bean;

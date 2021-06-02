@@ -17,7 +17,6 @@ eureka:
       defaultZone: http://localhost:8056/eureka
     fetch-registry: false
 
-
 ---
 
 spring:

@@ -1,4 +1,4 @@
-package com.stevens.springboot.hystrix.service;
+package com.stevens.springboot.eureka.service;
 
 import org.springframework.boot.actuate.health.AbstractHealthIndicator;
 import org.springframework.boot.actuate.health.Health;

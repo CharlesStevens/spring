@@ -1,4 +1,4 @@
-package com.stevens.springboot.hystrix.service;
+package com.stevens.springboot.eureka.service;
 
 import com.netflix.appinfo.HealthCheckHandler;
 import com.netflix.appinfo.InstanceInfo;
