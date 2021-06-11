@@ -18,6 +18,7 @@
         <module>spring-webmvc-interceptor</module>
         <module>spring-jpa</module>
         <module>spring-security-custom</module>
+        <module>spring-security-custom-jwt</module>
         <module>springboot-erureka-server</module>
         <module>springboot-eureka-client</module>
         <module>springboot-hystrix</module>

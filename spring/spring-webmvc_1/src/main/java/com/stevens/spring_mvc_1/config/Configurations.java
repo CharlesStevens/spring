@@ -18,7 +18,7 @@ import org.springframework.web.servlet.view.JstlView;
 
 @EnableWebMvc
 @Configuration
-@ComponentScan(basePackages = { "com.swastik.spring_mvc_1" })
+@ComponentScan(basePackages = { "com.stevens.spring_mvc_1" })
 public class Configurations implements WebMvcConfigurer {
 
 	// For normal Json and XMl for Rest Controller/ not for MVC only for Rest.

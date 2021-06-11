@@ -2,7 +2,7 @@
 <project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xmlns="http://maven.apache.org/POM/4.0.0"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <artifactId>spring-security-custom</artifactId>
+    <artifactId>spring-security-custom-jwt</artifactId>
     <packaging>war</packaging>
 
     <build>
@@ -78,6 +78,11 @@
             <artifactId>slf4j-api</artifactId>
             <groupId>org.slf4j</groupId>
             <version>1.7.13</version>
+        </dependency>
+        <dependency>
+            <groupId>io.jsonwebtoken</groupId>
+            <artifactId>jjwt</artifactId>
+            <version>0.9.1</version>
         </dependency>
     </dependencies>
 

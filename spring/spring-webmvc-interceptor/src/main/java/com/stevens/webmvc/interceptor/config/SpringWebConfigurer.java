@@ -13,7 +13,7 @@ import com.stevens.webmvc.interceptor.controllers.CustomHandlerInterceptor;
 
 @Configuration
 @EnableWebMvc
-@ComponentScan(basePackages = "com.swastik.webmvc.interceptor")
+@ComponentScan(basePackages = "com.stevens.webmvc.interceptor")
 public class SpringWebConfigurer implements WebMvcConfigurer {
 
 	@Bean

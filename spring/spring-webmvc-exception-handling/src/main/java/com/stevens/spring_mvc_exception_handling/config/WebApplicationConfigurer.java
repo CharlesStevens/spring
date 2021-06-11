@@ -11,7 +11,7 @@ import org.springframework.web.servlet.view.JstlView;
 
 @Configuration
 @EnableWebMvc
-@ComponentScan(basePackages = "com.swastik.spring_mvc_exception_handling")
+@ComponentScan(basePackages = "com.stevens.spring_mvc_exception_handling")
 public class WebApplicationConfigurer implements WebMvcConfigurer {
 
 	@Bean

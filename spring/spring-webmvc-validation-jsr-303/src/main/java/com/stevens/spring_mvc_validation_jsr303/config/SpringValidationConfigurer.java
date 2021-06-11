@@ -10,7 +10,7 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 @Configuration
 @EnableWebMvc
-@ComponentScan(basePackages = "com.swastik.spring_mvc_validation_jsr303")
+@ComponentScan(basePackages = "com.stevens.spring_mvc_validation_jsr303")
 public class SpringValidationConfigurer implements WebMvcConfigurer {
 
 	@Bean

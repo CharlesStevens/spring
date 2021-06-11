@@ -15,7 +15,7 @@ import com.stevens.spring_mvc_validation_spring.validator.EmployeeFormValidator;
 
 @Configuration
 @EnableWebMvc
-@ComponentScan(basePackages = "com.swastik.spring_mvc_validation_spring")
+@ComponentScan(basePackages = "com.stevens.spring_mvc_validation_spring")
 public class SpringValidationConfigurer implements WebMvcConfigurer {
 
 	@Bean
