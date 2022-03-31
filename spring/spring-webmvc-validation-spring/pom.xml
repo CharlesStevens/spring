@@ -13,7 +13,7 @@
 	</parent>
 
 	<properties>
-		<spring.version>5.1.5.RELEASE</spring.version>
+		<spring.version>5.3.18</spring.version>
 		<org.slf4j-version>1.7.5</org.slf4j-version>
 		<org.aspectj-version>1.7.4</org.aspectj-version>
 		<log4j.version>1.2.17</log4j.version>
